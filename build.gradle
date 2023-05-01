@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '2.6.3'
     id "io.spring.dependency-management" version "1.0.11.RELEASE"
-
+    id 'checkstyle'
 }
 
 group 'com.amilosh'
@@ -10,10 +10,19 @@ version '0.0.2'
 sourceCompatibility = JavaVersion.VERSION_15
 targetCompatibility = JavaVersion.VERSION_15
 
+ext {
+    checkstyleToolVersion = '9.3'
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+checkstyle {
+    toolVersion "$checkstyleToolVersion"
+    configFile rootProject.file('config/checkstyle.xml')
 }
