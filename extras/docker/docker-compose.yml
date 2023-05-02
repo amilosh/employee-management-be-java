@@ -1,0 +1,17 @@
+version: '3.9'
+
+volumes:
+  employee-management-volume:
+
+services:
+  postgres:
+    image: postgres:12.9
+    container_name: employee-management-container
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: employee-management-db
+    ports:
+      - 5432:5432
+    volumes:
+      - employee-management-volume:/var/lib/postgresql/data
