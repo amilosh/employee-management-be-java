@@ -12,7 +12,9 @@ targetCompatibility = JavaVersion.VERSION_15
 
 ext {
     checkstyleToolVersion = '9.3'
-    mapStructVersion = '1.4.2.Final'
+    mapStructVersion = "1.4.2.Final"
+    lombokVersion = "1.18.22"
+    lombokMapstructBindingVersion = "0.2.0"
 }
 
 repositories {
@@ -23,7 +25,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly "org.postgresql:postgresql"
-    implementation "org.mapstruct:mapstruct-processor:$mapStructVersion"
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    implementation "org.projectlombok:lombok-mapstruct-binding:$lombokMapstructBindingVersion"
     implementation "org.mapstruct:mapstruct:$mapStructVersion"
     annotationProcessor "org.mapstruct:mapstruct-processor:$mapStructVersion"
 }
