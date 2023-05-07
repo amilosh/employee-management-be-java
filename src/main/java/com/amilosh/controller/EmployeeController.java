@@ -1,5 +1,6 @@
 package com.amilosh.controller;
 
+import com.amilosh.controller.api.EmployeeControllerApi;
 import com.amilosh.dto.EmployeeCreateDto;
 import com.amilosh.dto.EmployeeDto;
 import com.amilosh.entity.Employee;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = "/employee")
-public class EmployeeController {
+public class EmployeeController implements EmployeeControllerApi {
 
     private final EmployeeService employeeService;
     private final EmployeeMapper employeeMapper;
