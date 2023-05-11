@@ -7,4 +7,6 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-data-jpa"
     runtimeOnly "org.postgresql:postgresql"
     implementation "org.flywaydb:flyway-core:$flywayVersion"
+    implementation "ch.qos.logback.contrib:logback-json-classic:$logbackJson"
+    implementation "ch.qos.logback.contrib:logback-jackson:$logbackJson"
 }
