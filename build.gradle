@@ -1,6 +1,7 @@
 plugins {
     id "org.springframework.boot" version "2.5.9" apply false
     id "io.spring.dependency-management" version "1.0.11.RELEASE" apply false
+    id 'org.unbroken-dome.test-sets' version '4.0.0' apply false
 }
 
 allprojects {
@@ -15,6 +16,7 @@ allprojects {
         lombokMapstructBindingVersion = "0.2.0"
         flywayVersion = "8.4.4"
         logbackJson = "0.1.5"
+        pgEmbeddedVersion = "0.13.4"
     }
 
     configure(subprojects) {
@@ -41,6 +43,8 @@ allprojects {
             implementation "org.projectlombok:lombok-mapstruct-binding:$lombokMapstructBindingVersion"
             implementation "org.mapstruct:mapstruct:$mapStructVersion"
             annotationProcessor "org.mapstruct:mapstruct-processor:$mapStructVersion"
+            testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+            testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
         }
 
         checkstyle {
